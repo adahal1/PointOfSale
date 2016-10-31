@@ -4,7 +4,10 @@ function addItem()
 {
   var newItem;
   newItem = document.getElementById("price").value;
+  if(isNaN(newItem)){
   //IF newItem is not a number
+  window.alert("Enter price as a number: ");
+  }
   // THEN show an alert: "Enter price as a number"
   //OTHERWISE,
   // update newItem to its value cast as a number
