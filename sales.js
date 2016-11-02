@@ -32,7 +32,7 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
-function getCookie(cname) {
+function getCookie(cname){
     var name = cname + "=";
     var ca = document.cookie.split(';');
     for(var i = 0; i < ca.length; i++) {
@@ -45,4 +45,15 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+function calculateReceipt(){
+  var receiptSubtotal = getCookie("preTax");
+  receiptSubtotal = Number(receiptSubtotal);
+  var receiptTax = receiptSubtotal * 0.075;
+  var receiptTotal = receiptSubtotal + receiptTax;
+  document.getElementById("sub").innerHTML = asCurrency(receiptSubtotal);
+  document.getElementById("tax").innerHTML = asCurrency(receiptTax);
+  document.getElementById("tot").innerHTML = asCurrency(receiptTotal);
+
 }
